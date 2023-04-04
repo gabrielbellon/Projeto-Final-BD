@@ -14,7 +14,7 @@ CREATE TABLE pedido(
 CREATE TABLE prepara_pedido(
     id_pedido int REFERENCES pedido(id) not null,
     cpf_funcionario varchar(11) references funcionario(cpf) not null,
-    
+
     constraint pk_funcped primary key (id_pedido, cpf_funcionario)
 );
 
@@ -27,14 +27,14 @@ CREATE TABLE item_cardapio(
 CREATE TABLE pedido_item(
     nome_item varchar(50) references item_cardapio(nome) not null,
     id_pedido int references pedido(id) not null,
-    
+
     constraint pk_peditem primary key (nome_item,id_pedido)
 );
 
 CREATE TABLE prato(
     nome_item varchar(50) references item_cardapio(nome) not null,
     tipo_prato varchar(15) check (tipo_prato in ('entrada', 'principal', 'sobremesa')) not null,
-    
+
     constraint pk_prato primary key (nome_item)
 );
 
@@ -53,11 +53,11 @@ CREATE TABLE ingrediente(
     quantidade int not null
 );
 
-CREATE TABLE igrediente_prato(
+CREATE TABLE ingrediente_prato(
     nome_item varchar(50) references item_cardapio(nome) not null,
-    nome_igrediente varchar(50) references ingrediente(nome) not null,
+    nome_ingrediente varchar(50) references ingrediente(nome) not null,
     quantidade int not null,
     unidade_medida varchar(10) not null,
-    
-    constraint pk_ingredprato primary key (nome_item, nome_igrediente) 
+
+    constraint pk_ingredprato primary key (nome_item, nome_ingrediente) 
 );
