@@ -124,6 +124,9 @@ VALUES ('Cerveja', 5);
 INSERT INTO pedido_item(nome_item, id_pedido)
 VALUES ('Risoto com queijo brie', 5);
 
+INSERT INTO pedido_item(nome_item, id_pedido)
+VALUES ('Pudim de leite condensado', 5);
+
 -- Insercao prato
 INSERT INTO prato(nome_item, tipo_prato)
 VALUES ('Beringela com molho tahine', 'entrada');
